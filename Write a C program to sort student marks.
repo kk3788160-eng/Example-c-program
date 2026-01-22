@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int n, temp;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    int marks[n];
+    for (int i = 0; i < n; i++) {
+        printf("Enter marks for student %d: ", i + 1);
+        scanf("%d", &marks[i]);
+    }
+
+    // Bubble sort
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (marks[j] > marks[j+1]) {
+                temp = marks[j];
+                marks[j] = marks[j+1];
+                marks[j+1] = temp;
+            }
+        }
+    }
+
+    printf("\nSorted marks:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", marks[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
