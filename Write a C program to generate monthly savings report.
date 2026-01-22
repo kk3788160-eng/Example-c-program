@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int months;
+    float income, expenses, savings;
+    float totalIncome = 0, totalExpenses = 0, totalSavings = 0;
+
+    // Input number of months
+    printf("Enter the number of months: ");
+    scanf("%d", &months);
+
+    printf("\n----- Monthly Savings Report -----\n");
+
+    // Loop through each month
+    for (int i = 1; i <= months; i++) {
+        printf("\nMonth %d:\n", i);
+
+        // Input income and expenses for the month
+        printf("Enter income: Rs. ");
+        scanf("%f", &income);
+        printf("Enter expenses: Rs. ");
+        scanf("%f", &expenses);
+
+        // Calculate savings
+        savings = income - expenses;
+
+        // Display savings for the month
+        printf("Savings for month %d: Rs. %.2f\n", i, savings);
+
+        // Add to totals
+        totalIncome += income;
+        totalExpenses += expenses;
+        totalSavings += savings;
+    }
+
+    // Display overall totals
+    printf("\n----- Overall Report -----\n");
+    printf("Total Income: Rs. %.2f\n", totalIncome);
+    printf("Total Expenses: Rs. %.2f\n", totalExpenses);
+    printf("Total Savings: Rs. %.2f\n", totalSavings);
+
+    return 0;
+}
