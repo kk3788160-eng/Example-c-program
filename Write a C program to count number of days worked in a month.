@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int daysInMonth, worked, totalWorked = 0;
+
+    // Input total number of days in the month
+    printf("Enter the total number of days in the month: ");
+    scanf("%d", &daysInMonth);
+
+    // Check for each day if the employee worked
+    for (int i = 1; i <= daysInMonth; i++) {
+        printf("Did the employee work on day %d? (1 for Yes, 0 for No): ", i);
+        scanf("%d", &worked);
+
+        if (worked == 1) {
+            totalWorked++;
+        }
+    }
+
+    // Display total days worked
+    printf("\nThe employee worked %d days out of %d days in the month.\n", totalWorked, daysInMonth);
+
+    return 0;
+}
