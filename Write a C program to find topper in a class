@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int n;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    char names[n][50];
+    int marks[n];
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter name of student %d: ", i + 1);
+        scanf(" %[^\n]s", names[i]);
+        printf("Enter marks of %s: ", names[i]);
+        scanf("%d", &marks[i]);
+    }
+
+    int maxMarks = marks[0];
+    char topper[50];
+    strcpy(topper, names[0]);
+
+    for (int i = 1; i < n; i++) {
+        if (marks[i] > maxMarks) {
+            maxMarks = marks[i];
+            strcpy(topper, names[i]);
+        }
+    }
+
+    printf("\nTopper is %s with %d marks.\n", topper, maxMarks);
+
+    return 0;
+}
