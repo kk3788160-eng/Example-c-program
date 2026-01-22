@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    float price1, price2, price3, total;
+
+    printf("Enter price of item 1: ");
+    scanf("%f", &price1);
+
+    printf("Enter price of item 2: ");
+    scanf("%f", &price2);
+
+    printf("Enter price of item 3: ");
+    scanf("%f", &price3);
+
+    total = price1 + price2 + price3;
+
+    printf("Total bill amount = %.2f", total);
+
+    return 0;
+}
