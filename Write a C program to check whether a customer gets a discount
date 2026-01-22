@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    float totalBill, discount = 0, finalAmount;
+
+    // Input the total bill amount
+    printf("Enter the total bill amount: Rs. ");
+    scanf("%f", &totalBill);
+
+    // Check if the customer is eligible for a discount
+    if (totalBill >= 1000) {
+        discount = totalBill * 0.10;  // 10% discount
+        finalAmount = totalBill - discount;
+        printf("You get a 10%% discount of Rs. %.2f\n", discount);
+        printf("Final amount to pay: Rs. %.2f\n", finalAmount);
+    } else {
+        finalAmount = totalBill;
+        printf("No discount applied.\n");
+        printf("Total amount to pay: Rs. %.2f\n", finalAmount);
+    }
+
+    return 0;
+}
