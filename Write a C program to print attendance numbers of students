@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int totalStudents;
+
+    // Input the total number of students
+    printf("Enter the total number of students: ");
+    scanf("%d", &totalStudents);
+
+    printf("\nAttendance numbers of students:\n");
+
+    // Print attendance numbers from 1 to totalStudents
+    for (int i = 1; i <= totalStudents; i++) {
+        printf("Student %d\n", i);
+    }
+
+    return 0;
+}
