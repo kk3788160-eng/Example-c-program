@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    float sales[7], total = 0;
+
+    for (int i = 0; i < 7; i++) {
+        printf("Enter sales for day %d: Rs. ", i + 1);
+        scanf("%f", &sales[i]);
+        total += sales[i];
+    }
+
+    printf("\nTotal weekly sales: Rs. %.2f\n", total);
+    return 0;
+}
