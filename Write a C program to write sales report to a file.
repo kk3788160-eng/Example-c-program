@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    int sales;
+    float amount;
+
+    fp = fopen("sales.txt", "w");
+
+    printf("Enter number of sales: ");
+    scanf("%d", &sales);
+    printf("Enter total amount: ");
+    scanf("%f", &amount);
+
+    fprintf(fp, "Sales: %d\nTotal Amount: %.2f", sales, amount);
+    fclose(fp);
+
+    printf("Sales report written to file.");
+    return 0;
+}
