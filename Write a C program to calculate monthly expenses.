@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    float expenses[12], total = 0;
+
+    for (int i = 0; i < 12; i++) {
+        printf("Enter expenses for month %d: Rs. ", i + 1);
+        scanf("%f", &expenses[i]);
+        total += expenses[i];
+    }
+
+    printf("\nTotal yearly expenses: Rs. %.2f\n", total);
+    printf("Average monthly expenses: Rs. %.2f\n", total / 12);
+
+    return 0;
+}
