@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct student {
+    int roll;
+    char name[20];
+};
+
+int main() {
+    FILE *fp, *temp;
+    struct student s;
+    int delRoll;
+
+    fp = fopen("students.dat", "rb");
+    temp = fopen("temp.dat", "wb");
+
+    if (fp == NULL) {
+        printf("File not found.\n");
+        return 1;
+    }
+
+    printf("Enter roll number to delete: ");
+    scanf("%d", &delRoll);
+
+    while (fread(&s, sizeof(s), 1, fp)) {
+        if (s.roll != delRoll) {
+            fwrite(&s, sizeof(s), 1, temp);
+        }
+    }
+
+    fclose(fp);
+    fclose(temp);
+
+    remove("students.dat");
+    rename("temp.dat", "students.dat");
+
+    printf("Record deleted successfully.\n");
+    return 0;
+}
