@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+struct student {
+    int roll;
+    char name[20];
+};
+
+int main() {
+    FILE *fp;
+    struct student s;
+    int roll, found = 0;
+
+    fp = fopen("students.dat", "rb+");
+
+    if (fp == NULL) {
+        printf("File not found.\n");
+        return 1;
+    }
+
+    printf("Enter roll number to update: ");
+    scanf("%d", &roll);
+
+    while (fread(&s, sizeof(s), 1, fp)) {
+        if (s.roll == roll) {
+            printf("Enter new name: ");
+            scanf("%s", s.name);
+
+            fseek(fp, -sizeof(s), SEEK_CUR);
+            fwrite(&s, sizeof(s), 1, fp);
+
+            found = 1;
+            break;
+        }
+    }
+
+    if (found)
+        printf("Record updated successfully.\n");
+    else
+        printf("Record not found.\n");
+
+    fclose(fp);
+    return 0;
+}
