@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+struct item {
+    int id;
+    char name[20];
+    int quantity;
+    float price;
+};
+
+int main() {
+    struct item i;
+    FILE *fp;
+    int choice;
+
+    fp = fopen("inventory.dat", "ab+");
+
+    do {
+        printf("\n1. Add Item");
+        printf("\n2. View Items");
+        printf("\n3. Exit");
+        printf("\nEnter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            printf("Enter Item ID: ");
+            scanf("%d", &i.id);
+            printf("Enter Item Name: ");
+            scanf("%s", i.name);
+            printf("Enter Quantity: ");
+            scanf("%d", &i.quantity);
+            printf("Enter Price: ");
+            scanf("%f", &i.price);
+
+            fwrite(&i, sizeof(i), 1, fp);
+            printf("Item added successfully.\n");
+            break;
+
+        case 2:
+            rewind(fp);
+            printf("\nInventory List:\n");
+            while (fread(&i, sizeof(i), 1, fp)) {
+                printf("ID: %d | Name: %s | Qty: %d | Price: %.2f\n",
+                       i.id, i.name, i.quantity, i.price);
+            }
+            break;
+        }
+    } while (choice != 3);
+
+    fclose(fp);
+    return 0;
+}
